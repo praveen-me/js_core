@@ -43,32 +43,40 @@ console.log(calculateSupply(54, 12365.02355));
 // Now store a fahrenheit temperature into a variable.
 // Convert it to celsius and output "NN°F is NN°C."
 function celsiusToFahrenheit(celsius) {
-  
+  return `${celsius} C is ${((9/5)*celsius)+32} F.`
 }
+function fahrenheitToCelsius(fahrenhiet) {
+  return `${fahrenhiet} F is ${((fahrenhiet-32)*.5556).toFixed(2)} C.`
+}
+
+console.log(celsiusToFahrenheit(36));
+console.log(fahrenheitToCelsius(96.8));
 
 
 //1. The following function returns true if the parameter age is greater than 18.
 // Otherwise it asks for a confirmation and returns its result:
 
-function checkAge(age) {
-  if (age > 18) {
-    return true;
-  } else {
-    // ...
-    return confirm('Did parents allow you?');
-  }
-}
+// function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   } else {
+//     // ...
+//     return confirm('Did parents allow you?');
+//   }
+// }
 // Will the function work differently if else is removed?
 
-function checkAge(age) {
-  if (age > 18) {
-    return true;
-  }
-  // ...
-  return confirm('Did parents allow you?');
-}
+// function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   }
+//   // ...
+//   return confirm('Did parents allow you?');
+// }
 // Is there any difference in the behavior of these two variants?
 
+// NO they work as same because in first one we just want to pass through the left statement from the else statement. 
+// But in second variant if complier didn't enter in the if statemenet it will execute the rest of the statement. 
 
 
 
@@ -77,18 +85,28 @@ function checkAge(age) {
 // 2. The following function returns true if the parameter age is greater than 18.
 // Otherwise it asks for a confirmation and returns its result.
 
-function checkAge(age) {
-  if (age > 18) {
-    return true;
-  } else {
-    return confirm('Do you have your parents permission to access this page?');
-  }
-}
+// function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   } else {
+//     return confirm('Do you have your parents permission to access this page?');
+//   }
+// }
+
 // Rewrite it, to perform the same, but without if, in a single line.
 // Make two variants of checkAge:
 // Using a question mark operator ?
 // Using OR ||
 
+// function checkAge(age) {
+//   return age > 18 ? true : 'Do you have your parents permission to access this page?';
+// }
+
+// function checkAge(age) {
+//   return (age > 18) == true || 'Do you have your parents permission to access this page?'; 
+// }
+
+// console.log(checkAge(21));
 
 
 // Write a function pow(x,n) that returns x in power n. Or, in other words, multiplies x by itself n times and returns the result.
@@ -98,22 +116,72 @@ function checkAge(age) {
 // Use prompt to take values for x and n, and then shows the result of pow(x,n) using alert.
 // In this task the function should support only natural values of n: integers up from 1.
 
+// function pow(x,n) {
+//   let result = 1;
+//   for(let i = 1; i <= n; i++) {
+//     result *= x;
+//   }
+//   return result;
+// }
 
+// console.log(pow(5,3));
 
 // Enter a string and the program counts the number of vowels in the text. For added complexity have it report a sum of each vowel found.
+// First count the vowels and then count each vowel seperately
+
+function countVowels(string) {
+  let chars = string.split('');
+  let count = 0;
+  for(let i = 0; i < chars.length; i++) {
+    if((chars[i] === 'a') || (chars[i] === 'e') || (chars[i] === 'i') || (chars[i] === 'o') || (chars === 'u')) {
+      count += 1;
+    }
+  }
+  console.log(chars);
+  console.log(count);
+}
+
+countVowels('alphabet');
 
 // Checks if the string entered by the user is a palindrome. That is that it reads the same forwards as backwards like “racecar”
 
-// Counts the number of individual words in a string. For added complexity read these strings in from a text file and generate a summary.
+function  checkPalindrome(string) {
+  let charInString = string.split('');
+  let reverseString = '';
+  for(let i = charInString.length - 1; i >= 0; i--) {
+    reverseString += charInString[i];
+  }
+
+  if(string === reverseString) {
+    console.log(`${string} is a palindrome.`);
+  } else {
+    console.log(`${string} is not a palindrome.`);
+  }
+
+}
+checkPalindrome('wow');
+
+// Counts the number of individual words in a string.
+
+function countChars(string) {
+  for(let i = 0; i < string.length; i++) {
+    console.log(string.charAt(i));
+  }
+}
+
+countChars('apple');
 
 // Show the following output using one loop.
     // 1, 2, 3, 4, 5
     // 6, 7, 8, 9, 10
 
+for(let i = 1; i < 10; i++) {
+  console.log(i);
+}
+
 
 // Write a program that asks the user for a number n and gives them the possibility to choose between computing the sum and computing the product of 1,…,n.
 
-// Write a function that returns the largest element in a list.
 
 // Write a program that asks the user for a number n and prints the sum of the numbers 1 to n
 
