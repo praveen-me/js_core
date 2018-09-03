@@ -28,6 +28,6 @@ delete myPenguin.outfit.pants;
 
 // 6. Write a for ... in loop to print the value of each piece of clothing in your penguin's outfit so you can see a list of clothing items in the console. (Hint: This is the same as step 31 from above, only now we're accessing values from a nested object!)
 console.log(`\nCLothing Item`);
-for(let clothes of Object.values(myPenguin.outfit)) {
-    console.log(clothes);
+for(let clothe of Object.values(myPenguin.outfit)) {
+    console.log(clothe);
 }
