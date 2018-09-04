@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM Practice</title>
+</head>
+<body>
+    <h1>Heading</h1>
+    <p id="para1">This is para 1.</p>
+    <p>This is para 2.</p>
+
+    <!-- Anotther Example -->
+    <p>The <img src="img/cat.png" alt="Cat"> in the
+        <img src="img/hat.png" alt="Hat">.</p>  
+    <p>
+    <button onclick="replaceImages()">Replace</button></p>
+
+    <script>
+        function replaceImages() {
+            let images = document.getElementsByTagName('img');
+            for(let i = 0; i < images.length; i++) {
+                let image = images[i];
+                if(image.alt) {
+                    let text = document.createTextNode(image.alt);
+                    image.parentNode.replaceChild(text, image);
+                }
+            }
+         }
+    </script>
+
+    <blockquote id="quote">
+        No book can ever be finished. While working on it we learn
+        just enough to find it immature the moment we turn away
+        from it.
+    </blockquote>
+
+    <script>
+        function elt(type, ...children) {
+            let node = document.createElement(type);
+            for(let child of children) {
+                if(typeof child != 'string') {
+                    node.appendChild(child);
+                } else {
+                    node.appendChild(document.createTextNode(child));
+                }
+            }
+            return node;
+        }
+
+        document.getElementById('quote').appendChild(
+            elt("footer", "—",
+        elt("strong", "Karl Popper"),
+        ", preface to the second editon of ",
+        elt("em", "The Open Society and Its Enemies"),
+        ", 1950"))
+    </script>
+
+    <!-- Another Example -->
+    <p data-classified="secret">The launch code is 00000000.</p>
+    <p data-classified="unclassified">I have two feet.</p>
+
+    <script>
+        let paras = document.body.getElementsByTagName('p');
+        for(para of paras) {
+            if(para.getAttribute("data-classified") === 'secret') {
+                para.remove();
+            }
+        }
+    </script>
+</body>
+</html>
