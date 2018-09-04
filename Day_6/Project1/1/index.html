@@ -3,14 +3,45 @@
  <head>
   <meta charset="utf-8"/>
   <title>About Me</title>
+  
+  <style>
+    .listitem {
+      color: red;
+    }
+  </style>
+
 </head>
 <body>
   <h1>About Me</h1>
 
-  <ul>
+  <ul>listitem
     <li>Nickname: <span id="nickname"></span>
     <li>Favorites:  <span id="favorites"></span>
     <li>Hometown: <span id="hometown"></span>
-   </ul>
+  </ul>
+
+  <!-- Script -->
+  <script>
+    document.body.setAttribute('style', 'font-family : "Arial, sans-serif" ');
+    
+    let nickname = document.getElementById('nickname');
+    let favorites = document.getElementById('favorites');
+    let hometown = document.getElementById('hometown');
+    
+    let li = document.getElementsByTagName('li');
+
+    nickname.innerText = 'Praveen';
+    favorites.innerText = 'Coding and Food';
+    hometown.innerText = 'Sambhal';
+
+    for(let i = 0; i < li.length; i++) {
+      li[i].classList.add('listitem');
+    }
+
+    let image = document.createElement('img');
+    image.setAttribute('src', 'dog.jpg');
+    document.body.appendChild(image);
+
+  </script>
  </body>
 </html>
