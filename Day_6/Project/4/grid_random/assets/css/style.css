@@ -11,7 +11,8 @@ html {
 .grid {
 	max-width: 540px;
 	width: 100%;
-	margin: 50px auto;
+    margin: 50px auto;
+    font-size: 0;
 }
 
 .grid_item  {
@@ -19,7 +20,6 @@ html {
     width: 50px;
     margin: 2px;
     display: inline-block;
-    font-size: 0;
 }
 
 .active {
