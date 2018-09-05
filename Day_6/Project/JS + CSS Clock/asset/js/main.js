@@ -34,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	setInterval(() => {
 		rotateHand(secondHand, seconds, secondHandDegree);
-		
 		console.log("Seconds",seconds);
 		return seconds++; 
+		
 	}, 1000);
 
 	// Initializing Minute Hand
