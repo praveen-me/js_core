@@ -143,3 +143,14 @@ h1, h2{
 #tabbed-content .panel.active{
     display: block;
 }
+
+@media screen and (max-width : 550px) {
+    .name {
+        display: block;
+        margin: 10px 0;
+    }
+    #book-value {
+        width: 150px !important;
+        margin-left: 1rem !important;
+    }
+}
