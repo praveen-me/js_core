@@ -1,0 +1,20 @@
+{
+  "name": "testingjs",
+  "version": "1.0.0",
+  "description": "This package belongs to testing with jest",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest --watchAll",
+    "build": "parcel build index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.9.3"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.6.0"
+  }
+}
