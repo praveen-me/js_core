@@ -1,0 +1,17 @@
+{
+  "name": "test-calc-function",
+  "version": "1.0.0",
+  "description": "This folder contains test using jest on simple calculator functions",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest --watchAll"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.6.0",
+    "node-sass": "^4.9.3"
+  }
+}
