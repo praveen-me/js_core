@@ -47,24 +47,44 @@
   var truck = new Vehicle('truck');
   truck.cargo = [];
 
-  truck.prototype.loadCargo =  function(cargo) {
-    this.cargo.push(cargo);
-    return this;
-  };
+  // truck.prototype.loadCargo =  function(cargo) {
+  //   this.cargo.push(cargo);
+  //   return this;
+  // };
 
-  truck.prototype.unloadCargo = function() {
-    return this.cargo.pop();
-  }
+  // truck.prototype.unloadCargo = function() {
+  //   return this.cargo.pop();
+  // }
 
   
 // Create an object called Teacher derived from the Person class, and implement a method called teach which receives a string called subject, and prints out.
-function Person(name) {
-  this.name = name;
+// function Person(name) {
+//   this.name = name;
+// }
+
+// const teacher = new Person("Ankit");
+// teacher.teach = function(subject) {
+//   console.log(`${this.name} teaches ${subject}.`);
+// }
+
+// teacher.teach("JavaScript");
+
+
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
 }
 
-const teacher = new Person("Ankit");
-teacher.teach = function(subject) {
-  console.log(`${this.name} teaches ${subject}.`);
+class Teacher extends Person {
+  constructor(name) {
+    super(name);
+  }
+
+  teach(subject) {
+    console.log(`${this.name} teaches ${subject}.`)
+  }
 }
 
-teacher.teach("JavaScript");
+let teacher1 = new Teacher('Ankit');
+teacher1.teach("JavaScript");
