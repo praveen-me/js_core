@@ -63,12 +63,12 @@ function checkError() {
     console.log(json.age);
   }
   if(json.agr === undefined) {
-    throw new Error("Incomplete Data");
+    throw new SyntaxError("Incomplete Data");
   }
 }
 
 try {
   checkError();
 } catch (error) {
-  console.error(error.message+"")
+  console.error(`${error.name} : ${error.message}`);
 }
