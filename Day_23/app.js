@@ -2,12 +2,15 @@
     const form = document.querySelector('#search-form');
     const searchField = document.querySelector('#search-keyword');
     const responseContainer = document.querySelector('#response-container');
+    const loader = document.querySelector('.loader');
     let searchedForText;
+    
     form.addEventListener('submit', function (e) {
         e.preventDefault();
         responseContainer.innerHTML = '';
         searchedForText = searchField.value;
         
+        loader.style.display = "block";
         getImage();
         getArticles();
     });
@@ -33,12 +36,23 @@
                 <figcaption>${searchedForText} by ${firstImage.user.name}</figcaption>
             </figure>
             `;
+
+            loader.style.display = 'none';
         } else {
             htmlContent = '<div class="error-no-image">No Images Available</div>';
+            loader.style.display = 'none';
         }
 
         responseContainer.insertAdjacentHTML('afterbegin', htmlContent);
     }
+
+    function getArticles() {
+        const articleRequest = new XMLHttpRequest();
+        articleRequest.onload = addArticles;
+        articleRequest.open('GET', `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=a9b3da6396eb479bb640afd3b6bf082c`);
+        articleRequest.send();
+    }
+    
 
     function addArticles() {
         let htmlContent = '';
@@ -55,11 +69,4 @@
         responseContainer.insertAdjacentHTML('beforeend', htmlContent)
     };
 
-    function getArticles() {
-        const articleRequest = new XMLHttpRequest();
-        articleRequest.onload = addArticles;
-        articleRequest.open('GET', `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=a9b3da6396eb479bb640afd3b6bf082c`);
-        articleRequest.send();
-    }
-    
 })();
