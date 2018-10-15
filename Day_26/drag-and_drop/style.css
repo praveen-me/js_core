@@ -1,13 +1,25 @@
+ul {
+  width: 40%;
+  text-align: center;
+  list-style-type: none;
+  padding: 0; 
+}
+
 li {
-  margin: 2rem 0;
-  border : dashed 2px;
+  padding: 0.8rem 0;
+  border : solid 1px #ddd;
+  background-color: #287cbe;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+li:hover {
+  background-color: #528bb8;
+  cursor: pointer;
+  box-shadow: #528bb8;
 }
 
 li.dragging {
   /* opacity : 0.3; */
-  border : dashed 2px red; 
-}
-
-li.dragover {
-  /* border : dashed 2px red;  */
+  box-shadow : inset 0px 0px 4px 4px #474545
 }
