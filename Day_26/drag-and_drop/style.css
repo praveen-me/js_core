@@ -1,0 +1,13 @@
+li {
+  margin: 2rem 0;
+  border : dashed 2px;
+}
+
+li.dragging {
+  /* opacity : 0.3; */
+  border : dashed 2px red; 
+}
+
+li.dragover {
+  /* border : dashed 2px red;  */
+}
