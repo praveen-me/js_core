@@ -9,8 +9,24 @@
 
 class MyElement extends HTMLElement {
 	connectedCallback() { // when the elem get connected with DOM
-		this.innerHTML = this.getAttribute('text') ? this.getAttribute('text') : 'Not value to the attribute';
+		this.render();
+	}
+	
+	render() {
+		this.innerHTML = `${new Date(this.getAttribute('datetime')).getHours()} : ${new Date(this.getAttribute('datetime')).getMinutes()} : ${new Date(this.getAttribute('datetime')).getSeconds()}`;
+	}
+
+	static get observedAttributes() {
+		return ['datetime']
+	}
+
+	attributeChangedCallback() {
+		this.render();
 	}
 }
 
 customElements.define('my-elem', MyElement);
+
+const customElm = document.getElementById('customElm');
+
+setInterval(() => customElm.setAttribute('datetime', new Date()), 1000)
