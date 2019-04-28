@@ -29,4 +29,27 @@ customElements.define('my-elem', MyElement);
 
 const customElm = document.getElementById('customElm');
 
-setInterval(() => customElm.setAttribute('datetime', new Date()), 1000)
+setInterval(() => customElm.setAttribute('datetime', new Date()), 1000);
+
+// Shadow Element
+class showButton extends HTMLElement {
+	connectedCallback() {
+		const shadow = this.attachShadow({
+			mode: "open"
+		})
+		shadow.innerHTML = `
+			<style>
+				button {
+					border: none;
+					font-size: 24px;
+					padding: 1rem;
+					border-radius: 4px;
+					color: #dc143c;
+				} 
+			</style>
+			<button>${this.getAttribute('name')}</button>
+		`;
+	}
+}
+
+customElements.define('my-btn', showButton);
