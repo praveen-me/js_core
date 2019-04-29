@@ -7,6 +7,8 @@
 // 4 - adoptedCallback => when the element is moved to the different document
 // 5 - static get observedAttributes => get an array of all the attributes. 
 
+const templateParent = document.getElementById('template-parent');
+
 class MyElement extends HTMLElement {
 	connectedCallback() { // when the elem get connected with DOM
 		this.render();
@@ -53,3 +55,14 @@ class showButton extends HTMLElement {
 }
 
 customElements.define('my-btn', showButton);
+
+templateParent.addEventListener('click', (e) => {
+	const { target } = e;
+	const tmpl = document.getElementById('templ');
+	
+	target.attachShadow({mode: "open"});
+
+	target.shadowRoot.append(tmpl.content.cloneNode(true));
+	
+	target.shadowRoot.getElementById('message').innerHTML = "I am from inside the showdow element";
+})
