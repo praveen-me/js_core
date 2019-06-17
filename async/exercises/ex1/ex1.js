@@ -19,11 +19,33 @@ function output(text) {
 
 // **************************************
 // The old-n-busted callback way
+const responses = {};
 
 function getFile(file) {
 	fakeAjax(file,function(text){
 		// what do we do here?
+		fileRecieved(file, text);
 	});
+}
+
+function fileRecieved(file, responseText) {
+	if(!responses[file]) {
+		responses[file] = responseText;
+	}
+
+	var files = ["file1", "file2", "file3"];
+
+	for (const file of files) {
+			if(file in responses) {
+				if(responses[file] !== true) {
+					output(responses[file])
+					responses[file] = true;
+				}
+			} else {
+				return false
+			}
+	}
+	console.log('completed')
 }
 
 // request all files at once in "parallel"
