@@ -36,16 +36,16 @@ function fileRecieved(file, responseText) {
 	var files = ["file1", "file2", "file3"];
 
 	for (const file of files) {
-			if(file in responses) {
-				if(responses[file] !== true) {
-					output(responses[file])
-					responses[file] = true;
-				}
-			} else {
-				return false
+		if(file in responses) {
+			if(responses[file] !== true) {
+				output(responses[file])
+				responses[file] = true;
 			}
+		} else {
+			return false
+		}
 	}
-	console.log('completed')
+	console.log('Completed!!')
 }
 
 // request all files at once in "parallel"
