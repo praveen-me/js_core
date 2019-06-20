@@ -26,11 +26,16 @@ function getFile(file) {
 	});
 }
 
-// Request all files at once in
-// "parallel" via `getFile(..)`.
-//
-// Render as each one finishes,
-// but only once previous rendering
-// is done.
+// TODO:
+// 1 - First make the array of the the files
+var files = ["file1", "file2", "file3"];
 
-// ???
+// 2 - Make over them and get a promise from them and then reduce over them for the chaining promises
+files
+.map(getFile)
+.reduce((chain, filePromise) => {
+	return chain
+	.then(() => filePromise)
+	.then(output)
+}, Promise.resolve())
+.then(() => output("Completed!!"));
