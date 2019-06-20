@@ -37,6 +37,3 @@ p1
 .then(output)
 .then(() => "Completed!!")
 .then(output);
-
-// request all files at once in "parallel"
-// ???
