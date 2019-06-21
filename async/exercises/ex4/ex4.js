@@ -33,7 +33,7 @@ var files = ["file1", "file2", "file3"];
 // 2 - Make over them and get a promise from them and then reduce over them for the chaining promises
 files
 .map(getFile)
-.reduce((chain, filePromise) => {
+.reduce(async (chain, filePromise) => {
 	return chain
 	.then(() => filePromise)
 	.then(output)
