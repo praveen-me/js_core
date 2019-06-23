@@ -25,26 +25,11 @@ function getFile(file) {
 	});
 }
 
-var files = ["file1", "file2", "file3"];
-
-var filePromises = files.map(v => getFile(v))
 ASQ()
-.all(...filePromises)
+.all(...["file1", "file2", "file3"].map(getFile))
 .val((msg1, msg2, msg3) => {
 	output(msg1);
 	output(msg2);
 	output(msg3);
 	output("Completed!!");
-})
-
-// ASQ
-// .all()
-
-// Request all files at once in
-// "parallel" via `getFile(..)`.
-//
-// Render as each one finishes,
-// but only once previous rendering
-// is done.
-
-// ???
+});
