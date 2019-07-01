@@ -13,6 +13,7 @@ function fakeAjax(url,cb) {
 	},randomDelay);
 }
 
+// function for getting output
 function output(text) {
 	console.log(text);
 }
