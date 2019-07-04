@@ -12,7 +12,7 @@ class Animal {
 class Mammal extends Animal {
   constructor(name, age, color) {
     super(name, age);
-    this.color = color;    
+    this.color = color;
   }
 
   talk() {
@@ -20,7 +20,7 @@ class Mammal extends Animal {
   }
 }
 
-let mammal = new Mammal('Praveen', 18, 'pata nhi');
+let mammal = new Mammal('Praveen', 19, 'Boom Boom');
 
 console.log(mammal.talk)
 

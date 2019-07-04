@@ -8,7 +8,7 @@ Animal.prototype.walk = function () {
 }
 
 function Mammal(name, age, color) {
-  Animal.call(this, name, age);
+  Animal.apply(this, [name, age]);
   this.color = color;
 }
 
