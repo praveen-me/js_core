@@ -12,6 +12,6 @@
   "dependencies": {
     "babel-preset-env": "^1.7.0",
     "jest": "^23.6.0",
-    "node-sass": "^4.9.3"
+    "node-sass": "^7.0.0"
   }
 }
